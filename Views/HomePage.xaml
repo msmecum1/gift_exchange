@@ -1,0 +1,21 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gift_Exchange.Views.HomePage">
+
+    <StackLayout>
+        <Label Text="Welcome to the Gift Exchange!"
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="CenterAndExpand" />
+        <Button Text="Add Player"
+                Command="{Binding AddPlayerCommand}" />
+        <Button Text="Generate Pairs"
+                Command="{Binding GeneratePairsCommand}" />
+        <ListView ItemsSource="{Binding Pairs}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Giver.Name}" Detail="{Binding Receiver.Name}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
